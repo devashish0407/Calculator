@@ -21,19 +21,19 @@ class Calculator(QWidget):
         
         # Buttons
         buttons = [
-            ('7', 0, 0), ('8', 0, 1), ('9', 0, 2), ('/', 0, 3),
-            ('4', 1, 0), ('5', 1, 1), ('6', 1, 2), ('*', 1, 3),
-            ('1', 2, 0), ('2', 2, 1), ('3', 2, 2), ('-', 2, 3),
-            ('0', 3, 0), ('.', 3, 1), ('=', 3, 2), ('+', 3, 3),
-            ('C', 4, 0, 1, 4)
+            ('7', 0, 0, 1, 1), ('8', 0, 1, 1, 1), ('9', 0, 2, 1, 1), ('/', 0, 3, 1, 1),
+            ('4', 1, 0, 1, 1), ('5', 1, 1, 1, 1), ('6', 1, 2, 1, 1), ('*', 1, 3, 1, 1),
+            ('1', 2, 0, 1, 1), ('2', 2, 1, 1, 1), ('3', 2, 2, 1, 1), ('-', 2, 3, 1, 1),
+            ('0', 3, 0, 1, 1), ('.', 3, 1, 1, 1), ('=', 3, 2, 1, 1), ('+', 3, 3, 1, 1),
+            ('C', 4, 0, 1, 4)  # 'C' button spans 4 columns
         ]
-        
-        for text, row, col, rowspan=1, colspan=1 in buttons:
+
+        for text, row, col, rowspan, colspan in buttons:
             button = QPushButton(text)
             button.setFixedSize(60, 40)
             button.clicked.connect(self.on_button_click)
             grid.addWidget(button, row, col, rowspan, colspan)
-        
+
         vbox.addLayout(grid)
         self.setLayout(vbox)
     
